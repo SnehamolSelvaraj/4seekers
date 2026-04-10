@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="payment-page">
+    <div class="container">
+        <div class="payment-card highlight-card">
+            <h2 class="metallic-gold text-center mb-4">Complete Payment</h2>
+            <p class="payment-intro text-center">Scan the QR code below or use the UPI details to securely pay your
+                registration fee.</p>
+
+            <div class="payment-content">
+                <div class="qr-container">
+                    <img src="{% static 'images/qr.jpg' %}" alt="Payment QR Code" class="qr-image"
+                        onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg'">
+                    <div class="qr-glow"></div>
+                </div>
+
+                <div class="payment-amount text-center mt-3">
+                    <span class="reg-fee-label">Registration Fee</span>
+                    <div class="amount-badge">
+                        <h2 class="metallic-gold amount-number">500 ₹</h2>
+                    </div>
+                </div>
+
+                <div class="payment-details">
+                    <div class="detail-item">
+                        <span class="detail-label">UPI ID</span>
+                        <div class="detail-value-box">
+                            <span class="detail-value">8156872440@ybl</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Phone Number</span>
+                        <div class="detail-value-box">
+                            <span class="detail-value">8156872440</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-instructions mt-4">
+                    <div class="info-alert">
+                        <i class="fas fa-info-circle"></i>
+                        <p>After completing the payment, click 'Continue' to proceed to the application form. You will
+                            be able to provide payment proof on the next page if requested.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="{% url 'job' %}" class="btn-gold-glow"
+                        style="display:inline-block; padding: 16px 36px; border-radius: 40px;">
+                        I Have Completed The Payment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

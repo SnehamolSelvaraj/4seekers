@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}4SEEKERS | About Us{% endblock %}
+
+{% block content %}
+<style>
+    .about-section {
+        padding: calc(var(--nav-height) + 80px) 20px 80px 20px;
+        min-height: 100vh;
+        background: radial-gradient(circle at center, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        text-align: center;
+    }
+
+    .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 50px;
+        border-radius: 20px;
+        border: 1px solid rgba(212, 175, 55, 0.1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-content h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+    }
+
+    .about-content p {
+        font-size: 1.2rem;
+        color: #cccccc;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    .core-values {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+
+    .value-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 15px;
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .value-box h3 {
+        color: var(--gold);
+        margin-bottom: 10px;
+    }
+</style>
+
+<section class="about-section">
+    <div class="about-content">
+        <h2 class="metallic-gold">About 4SEEKERS</h2>
+        <p>4SEEKERS is the premium recruitment and job placement ecosystem designed for the modern workforce. We bridge
+            the gap between world-class talent and industry-leading companies effortlessly.</p>
+        <p>Whether you're looking to hire the best professionals to elevate your store or company, or if you're a
+            skilled individual eager to get hired faster, 4SEEKERS is built seamlessly for you.</p>
+
+        <div class="core-values">
+            <div class="value-box">
+                <h3>Innovation</h3>
+                <p>Modernizing traditional recruitment flows.</p>
+            </div>
+            <div class="value-box">
+                <h3>Excellence</h3>
+                <p>100% placement support for all candidates.</p>
+            </div>
+            <div class="value-box">
+                <h3>Integrity</h3>
+                <p>Connecting the right people properly and securely.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

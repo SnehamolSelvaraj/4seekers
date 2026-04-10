@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="terms-page">
+    <div class="container">
+        <div class="terms-card highlight-card">
+            <h2 class="metallic-gold text-center mb-4">Terms & Conditions</h2>
+            <p class="terms-intro text-center">Please read and accept our terms before proceeding with your job application.</p>
+            
+            <div class="terms-content">
+                <div class="term-item">
+                    <div class="term-icon">₹</div>
+                    <div class="term-text">
+                        <h3>Registration Fee</h3>
+                        <p>A first-time registration fee of <strong>₹500</strong> is required, which provides you with a validity of <strong>one year</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-icon">💼</div>
+                    <div class="term-text">
+                        <h3>Our Commitment</h3>
+                        <p>During this one-year period, we will actively work to find the best jobs for you.</p>
+                    </div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-icon">⏱️</div>
+                    <div class="term-text">
+                        <h3>Job Types</h3>
+                        <p>We provide assistance for both <strong>part-time</strong> and <strong>full-time</strong> job opportunities.</p>
+                    </div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-icon">🏢</div>
+                    <div class="term-text">
+                        <h3>Diverse Opportunities</h3>
+                        <p>Our network includes everything from small local shops to high-tier companies.</p>
+                    </div>
+                </div>
+
+                <div class="term-item border-gold">
+                    <div class="term-icon">💰</div>
+                    <div class="term-text">
+                        <h3>Placement Fee</h3>
+                        <p>Once you secure a job through our platform, a final payment of <strong>₹500</strong> will be collected from your first month's salary.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms-acceptance mt-5">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="accept-terms">
+                    <span class="checkmark"></span>
+                    <span class="label-text">I have read and agree to all the terms and conditions mentioned above.</span>
+                </label>
+                
+                <div class="text-center mt-4">
+                    <button id="continue-btn" class="btn-silver-glow disabled" disabled>
+                        Continue to Application
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('accept-terms').addEventListener('change', function() {
+        const btn = document.getElementById('continue-btn');
+        if (this.checked) {
+            btn.classList.remove('disabled');
+            btn.classList.add('btn-gold-glow');
+            btn.classList.remove('btn-silver-glow');
+            btn.disabled = false;
+        } else {
+            btn.classList.add('disabled');
+            btn.classList.remove('btn-gold-glow');
+            btn.classList.add('btn-silver-glow');
+            btn.disabled = true;
+        }
+    });
+
+    document.getElementById('continue-btn').addEventListener('click', function() {
+        if (!this.disabled) {
+            window.location.href = "{% url 'payment' %}";
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}4SEEKERS | Post a Job{% endblock %}
+
+{% block content %}
+<style>
+    .hire-section {
+        padding: calc(var(--nav-height) + 60px) 20px 80px 20px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at top, rgba(5, 5, 5, 1) 0%, rgba(10, 10, 10, 1) 100%);
+        position: relative;
+    }
+
+    .hire-form-container {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        padding: 50px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .form-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        display: block;
+        color: var(--silver);
+        margin-bottom: 8px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 15px 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: #fff;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .submit-btn-container {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .btn-submit {
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        color: #000;
+        border: none;
+        padding: 16px 40px;
+        font-size: 1.1rem;
+        font-weight: 800;
+        border-radius: 30px;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+    }
+
+    /* Grid for two-column inputs */
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .hire-form-container {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
+<section class="hire-section">
+    <div class="hire-form-container">
+        <div class="form-header">
+            <h2 class="metallic-gold">Hire Talent</h2>
+            <p style="color: #888;">Fill out the details below to broadcast your hiring needs.</p>
+        </div>
+
+        <form action="{% url 'hire' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="company">Company / Store Name</label>
+                <input type="text" id="company" name="company" class="form-control" placeholder="E.g. Acme Corp"
+                    required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact">Contact Number</label>
+                    <input type="tel" id="contact" name="contact" class="form-control" placeholder="E.g. 9876543210"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" class="form-control"
+                        placeholder="E.g. Mumbai, India" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="position">Job Position</label>
+                    <input type="text" id="position" name="position" class="form-control"
+                        placeholder="E.g. Sales Manager" required>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Monthly Salary Range</label>
+                    <input type="text" id="salary" name="salary" class="form-control"
+                        placeholder="E.g. ₹30,000 - ₹50,000" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender">Preferred Gender</label>
+                    <select id="gender" name="gender" class="form-control" required>
+                        <option value="Any" style="color:#000;">Any</option>
+                        <option value="Male" style="color:#000;">Male</option>
+                        <option value="Female" style="color:#000;">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="qualifications">Qualifications</label>
+                    <input type="text" id="qualifications" name="qualifications" class="form-control"
+                        placeholder="E.g. Graduation, MBA" required>
+                </div>
+            </div>
+
+            <div class="submit-btn-container">
+                <button type="submit" class="btn-submit">Submit Hiring Request</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

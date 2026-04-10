@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hire the best or get hired faster with us. 4SEEKERS.">
+    <title>{% block title %}4SEEKERS | Hire the best or get hired faster{% endblock %}</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="brand-logo">
+                <img src="{% static 'images/emblem.png' %}" alt="4SEEKERS" class="nav-logo">
+            </a>
+            <nav class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About Us</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer minimal-footer">
+        <div class="container text-center">
+            <span class="logo-text small-logo"><span class="text-gold">4</span><span class="text-white">SEEKERS</span></span>
+            <p class="copyright">&copy; 2026 4SEEKERS. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth reveal animation
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="hero-section">
+    <!-- Place the background image wrapper -->
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <h1 class="main-headline">
+            <span class="metallic-gold">Hire the Best</span><br>
+            <span class="metallic-silver">Or Get Hired Faster With US.</span>
+        </h1>
+
+
+        <div class="hero-actions">
+            <a href="{% url 'hire' %}" class="btn-gold-glow">I'm looking to Hire</a>
+            <a href="{% url 'terms' %}" class="btn-silver-glow">I'm looking for a Job</a>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-box">
+                <h4>10k+</h4>
+                <p>Top Companies</p>
+            </div>
+            <div class="stat-box">
+                <h4>100%</h4>
+                <p>Placement Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
